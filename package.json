@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "HTML and XML parser",
   "main": "html2string.ts",
-  "scripts": {
-		"lint": "./node_modules/.bin/eslint ."
-	},
+  "scripts": { "lint": "./node_modules/.bin/eslint ." },
   "keywords": [],
   "author": "MartynLCD3",
   "license": "ISC",
