@@ -2,11 +2,8 @@
   "name": "html2string",
   "version": "1.0.0",
   "description": "HTML and XML parser",
-  "main": "index.js",
-  "scripts": {
-	  "lint": "./node_modules/.bin/eslint .",
-    "start": "ts-node index.ts"
-  },
+  "main": "html2string.ts",
+  "scripts": {},
   "keywords": [],
   "author": "MartynLCD3",
   "license": "ISC",
