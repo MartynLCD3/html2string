@@ -7,9 +7,7 @@
   "keywords": [],
   "author": "MartynLCD3",
   "license": "ISC",
-  "dependencies": {
-    "ts-node": "^10.7.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
