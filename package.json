@@ -5,8 +5,8 @@
   "main": "html2string.ts",
   "scripts": { "lint": "./node_modules/.bin/eslint ." },
   "keywords": [],
-  "author": "MartynLCD3",
-  "license": "ISC",
+  "author": "Martin Castagnolo (MartynLCD3)",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.15.0",
