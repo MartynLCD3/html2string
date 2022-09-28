@@ -109,15 +109,30 @@ class html2string {
 
   noSpecialCharacters(body: string): string {
     const text = body
-      .replace(/á|à|â|ä|ã/g, "a")
-      .replace(/é|è|ê|ë/g, "e")
-      .replace(/í|ì|î|ï/g, "i")
-      .replace(/ó|ò|ô|ö|õ/g, "o")
-      .replace(/ú|ù|û|ü/g, "u")
-      .replace(/ñ/g, "ni")
-      .replace(/ç/g, "c");
+      .replace(/À|Á|Â|Ã|Ä|Å|à|á|â|ã|ä|å/g, "a")
+      .replace(/È|É|Ê|Ë|è|é|ê|ë|ẽ|ð/g, "e")
+      .replace(/Ì|Í|Î|Ï|ì|í|î|ï|ĩ/g, "i")
+      .replace(/Ò|Ó|Ô|Õ|Õ|Ö|Ø|ò|ó|ô|õ|ö|ø/g, "o")
+      .replace(/Ù|Ú|Û|Ü|ù|ú|ǘ|û|ü|ũ/g, "u")
+      .replace(/Ñ|ñ/g, "n")
+      .replace(/Ç|ç/g, "c")
+      .replace(/Ð/g, "d")
+      .replace(/Ÿ|Ỳ|ÿ|ý/g, "y")
+      .replace(/Ž|ž/, "z")
+      .replace(/Š|Ś|š/g, "s")
+      .replace(/ß/g, "b");
 
     return text;
+  }
+
+  removeSingleLetter(body: string): string {
+    const arrOfStrings = body.split(" ");
+    const witouthSingleLetter = arrOfStrings
+      .filter((stg, index) =>
+        stg.length !== 1 ? arrOfStrings.slice(index, 1) : ""
+      )
+      .join(" ");
+    return witouthSingleLetter;
   }
 
   withoutTags(body: string): string {
@@ -130,13 +145,13 @@ class html2string {
     return text;
   }
 
-  onlyCharacters(body: string, alpha: boolean): string {
-    const text = body.replace(/[^a-zA-Z0-9\u00C0-\u00ff]+/g, " ");
-    if (!alpha) {
-      const cleanText = text.replace(/\b\d+\b/g, " ");
-      return cleanText;
-    }
+  onlyCharacters(body: string): string {
+    const text = body.replace(/[^a-zA-Z\u00C0-\u00ff]+/g, " ");
     return text;
+  }
+
+  noRepeats(body: string) {
+    return [...new Set(body.split(" "))].join(" ");
   }
 
   wordFilter(body: string, words: string[]) {
@@ -149,7 +164,8 @@ class html2string {
       const filteredOut = body
         .replace(new RegExp(regularExpression, "gi"), "")
         .trim()
-        .replace(/ +/g, " ");
+        .replace(/ +/g, " ")
+        .split(" ");
       return filteredOut;
     } catch {
       return body;
@@ -158,4 +174,3 @@ class html2string {
 }
 
 export default new html2string();
-
